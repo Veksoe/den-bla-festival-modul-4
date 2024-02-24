@@ -101,6 +101,16 @@ i {
     color: var(--interactableColor);
 }
 
+.active i{
+    color: var(--backgroundColor);
+}
+
+nav .active{
+    background-color: var(--interactableColor);
+    padding: 10px;
+    border-radius: 100%;
+}
+
 /* --- TEXT --- */
 h1,
 h2,
