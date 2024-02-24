@@ -96,7 +96,10 @@ article {}
 
 a {}
 
-i {}
+i {
+    font-size: 30px;
+    color: var(--interactableColor);
+}
 
 /* --- TEXT --- */
 h1,
