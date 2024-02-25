@@ -60,6 +60,10 @@
     justify-content: space-between;
 }
 
+.bold {
+    font-weight: 700;
+}
+
 /* --- GENERALS --- */
 
 body {
@@ -87,10 +91,13 @@ header.index {
 
 main {
     display: grid;
-    grid-template-columns: var(--standardSpacing) repeat (4, 1fr) var(--standardSpacing);
+    grid-template-columns: var(--standardSpacing) repeat(4, 1fr) var(--standardSpacing);
+    margin-bottom: 10vh;
 }
 
-section {}
+section {
+    grid-column: 2/-2;
+}
 
 article {}
 
@@ -101,11 +108,11 @@ i {
     color: var(--interactableColor);
 }
 
-.active i{
+.active i {
     color: var(--backgroundColor);
 }
 
-nav .active{
+nav .active {
     background-color: var(--interactableColor);
     padding: 10px;
     border-radius: 100%;
@@ -154,7 +161,7 @@ h2 {
 h3 {
     font-size: 1rem;
     margin: 0px;
-    color: var(--secondaryColor);
+    color: var(--accentColor);
 }
 
 h1.title {
@@ -163,7 +170,8 @@ h1.title {
     margin: 0;
 }
 
-p {
+p,
+li {
     margin: 0 0 var(--smallSpacing) 0;
     color: var(--baseTextDarkColor);
     font-family: "Raleway", sans-serif;
@@ -188,24 +196,51 @@ p {
 }
 
 /* --- INFORMATION CARDS --- */
-section .informationCard{
+section .informationCard {
     background-color: var(--primaryColor);
 }
 
-.callout{
+.callout {
     background-color: var(--accentColor);
     padding: var(--largeSpacing);
     text-align: center;
     margin-inline: 20px;
+    color: var(--baseTextLightColor);
+    border-radius: 5px;
 }
 
-.callout h3{
+.callout h3 {
     font-size: 1.3rem;
 }
 
-.callout p{
-    color: var(--secondaryColor);
+.callout p {
+    color: var(--baseTextLightColor);
     font-weight: 600;
     font-size: 1.1rem;
 }
 
+.focusEntrypoint {
+    height: 250px;
+    position: relative;
+    grid-column: 2/-2;
+}
+
+.focusEntrypoint img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 5px;
+}
+
+.focusEntrypoint p {
+    background: var(--primaryColor);
+    position: absolute;
+    color: var(--baseTextLightColor);
+    font-size: 1.3rem;
+    font-weight: 600;
+    padding: var(--standardSpacing);
+    bottom: 10px;
+    width: 80%;
+    border-radius: 0 5px 5px 0;
+}
