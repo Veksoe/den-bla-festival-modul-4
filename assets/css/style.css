@@ -68,7 +68,7 @@ body {
 }
 
 nav {
-    position: absolute;
+    position: fixed;
     width: 100%;
     bottom: 0;
     padding: var(--standardSpacing);
@@ -127,7 +127,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+a {
     font-family: "Poppins", sans-serif;
 }
 
@@ -137,14 +138,17 @@ h1 {
     margin: var(--mediumSpacing) var(--standardSpacing);
     text-align: center;
     color: var(--baseTextLightColor);
+    position: relative;
 }
 
 h2 {
     font-size: 1.5rem;
     color: var(--accentColor);
     font-style: italic;
-    margin: 0px;
+    margin-top: var(--mediumSpacing);
+    margin-bottom: var(--smallSpacing);
     color: var(--primaryColor);
+    text-align: center;
 }
 
 h3 {
@@ -166,14 +170,42 @@ p {
 }
 
 /* --- BUTTONS --- */
-a .btn {
+.btn {
     background: var(--interactableColor);
     padding: var(--standardSpacing) var(--mediumSpacing);
     text-decoration: none;
     text-transform: uppercase;
+    color: var(--baseTextDarkColor);
+    border-radius: 15px;
+    font-size: 1.2rem;
+    font-weight: 600;
 }
 
-a .btn:hover {
+.btn:hover {
     background: var(--hoverButtonColor);
     transform: scale(1.1);
+    transition: 0.3s;
 }
+
+/* --- INFORMATION CARDS --- */
+section .informationCard{
+    background-color: var(--primaryColor);
+}
+
+.callout{
+    background-color: var(--accentColor);
+    padding: var(--largeSpacing);
+    text-align: center;
+    margin-inline: 20px;
+}
+
+.callout h3{
+    font-size: 1.3rem;
+}
+
+.callout p{
+    color: var(--secondaryColor);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
