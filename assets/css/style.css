@@ -9,6 +9,7 @@
     --secondaryColor: #B1D8F2;
     --accentColor: #0C68B2;
     --interactableColor: #25D9FE;
+    --hoverButtonColor: #25bddb;
     --tagColor: rgba(37, 217, 254, .5);
     --backgroundColor: #D9E9F5;
     --baseTextDarkColor: #333333;
@@ -178,7 +179,7 @@ li {
 }
 
 /* --- BUTTONS --- */
-.btn {
+a.btn {
     background: var(--interactableColor);
     padding: var(--standardSpacing) var(--mediumSpacing);
     text-decoration: none;
@@ -187,9 +188,11 @@ li {
     border-radius: 15px;
     font-size: 1.2rem;
     font-weight: 600;
+    grid-column: 2/-2;
+    text-align: center;
 }
 
-.btn:hover {
+a.btn:hover {
     background: var(--hoverButtonColor);
     transform: scale(1.1);
     transition: 0.3s;
@@ -204,9 +207,10 @@ section .informationCard {
     background-color: var(--accentColor);
     padding: var(--largeSpacing);
     text-align: center;
-    margin-inline: 20px;
+    margin: 20px;
     color: var(--baseTextLightColor);
     border-radius: 5px;
+
 }
 
 .callout h3 {
