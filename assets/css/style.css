@@ -119,6 +119,7 @@ nav .active {
     border-radius: 100%;
 }
 
+
 /* --- TEXT --- */
 h1,
 h2,
@@ -160,9 +161,10 @@ h2 {
 }
 
 h3 {
-    font-size: 1rem;
+    font-size: 1.2rem;
     margin: 0px;
     color: var(--accentColor);
+    font-weight: 500;
 }
 
 h1.title {
@@ -190,43 +192,43 @@ a.btn {
     font-weight: 600;
     grid-column: 2/-2;
     text-align: center;
+    margin-block: 20px;
 }
 
 a.btn:hover {
     background: var(--hoverButtonColor);
-    transform: scale(1.1);
     transition: 0.3s;
 }
 
-/* --- INFORMATION CARDS --- */
-section .informationCard {
-    background-color: var(--primaryColor);
-}
-
+/* --- CALLOUT --- */
 .callout {
     background-color: var(--accentColor);
     padding: var(--largeSpacing);
     text-align: center;
-    margin: 20px;
     color: var(--baseTextLightColor);
     border-radius: 5px;
-
+    
 }
 
 .callout h3 {
     font-size: 1.3rem;
+    color: var(--baseTextLightColor);   
 }
 
 .callout p {
     color: var(--baseTextLightColor);
-    font-weight: 600;
+    font-weight: 500;
     font-size: 1.1rem;
 }
+
+/* --- FOCUS ENTRY POINTS --- */
 
 .focusEntrypoint {
     height: 250px;
     position: relative;
     grid-column: 2/-2;
+    margin-bottom: var(--mediumSpacing);
+    display: block;
 }
 
 .focusEntrypoint img {
@@ -247,4 +249,51 @@ section .informationCard {
     bottom: 10px;
     width: 80%;
     border-radius: 0 5px 5px 0;
+}
+
+/* ---IMAGES--- */
+
+.imgContainer{
+    grid-column: 1/-1;
+    height: 250px;
+}
+
+.imgContainer img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* ---SLIDESHOW--- */
+.slideshow{
+    position: relative;
+}
+
+.slideshow .imgContainer{
+    height: 350px;
+}
+
+.slideshow .informationCard{
+    background: var(--primaryColor);
+    position: absolute;
+    padding: var(--standardSpacing);
+    width: 80%;
+    bottom: 10px;
+}
+
+.informationCard p, .informationCard h3, .informationCard i{
+    color: var(--baseTextLightColor);
+}
+
+.informationCard .flex{
+    gap: var(--smallSpacing);
+}
+
+.informationCard i{
+    font-size: 20px;
+}
+
+.informationCard h3{
+    margin-bottom: var(--smallSpacing);
 }
