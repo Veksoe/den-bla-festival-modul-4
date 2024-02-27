@@ -372,6 +372,7 @@ background-color: white;
 padding: var(--mediumSpacing);
 border-radius: 5px;
 box-shadow: 5px 5px 5px rgba(128, 128, 128, 0.493);
+text-decoration: none;
 
 }
 
