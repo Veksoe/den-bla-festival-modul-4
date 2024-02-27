@@ -237,6 +237,11 @@ a.btn:hover {
 
 }
 
+.eventInfo h3 {
+
+    font-size: 1rem;
+}
+
 .eventInfo .flex {
     gap: var(--smallSpacing)
 }
