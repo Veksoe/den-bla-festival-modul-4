@@ -361,3 +361,39 @@ a.btn:hover {
 .locationInfo div {
     margin: var(--smallSpacing) 0;
 }
+
+
+
+/* ---Cardtemplate ---*/
+.cardTemplate{
+grid-column: 2/-2;
+border: 2px solid var(--interactableColor);
+background-color: white;
+padding: var(--mediumSpacing);
+border-radius: 5px;
+box-shadow: 5px 5px 5px rgba(128, 128, 128, 0.493);
+
+}
+
+.cardTemplate .imgContainer{
+width: 150px;
+height: 120px;
+}
+
+.cardTemplate .flex{
+    gap: var(--smallSpacing);
+}
+
+
+.cardtopicons{
+}
+
+.cardbottomicons{
+gap: var(--smallSpacing);
+justify-content: right;
+}
+
+.basicInfo{
+ margin-bottom: var(--standardSpacing);
+}
+/* Card end */
