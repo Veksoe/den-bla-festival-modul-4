@@ -257,7 +257,7 @@ a.btn:hover {
     height: 250px;
     position: relative;
     grid-column: 2/-2;
-    margin-bottom: var(--mediumSpacing);
+    margin: var(--standardSpacing) 0;
     display: block;
 }
 
