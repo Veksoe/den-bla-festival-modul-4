@@ -186,6 +186,10 @@ li {
     font-family: "Raleway", sans-serif;
 }
 
+p.note {
+    font-size: .9rem;
+}
+
 /* --- BUTTONS --- */
 a.btn {
     background: var(--interactableColor);
@@ -231,6 +235,11 @@ a.btn:hover {
 .eventInfo {
     gap: var(--standardSpacing);
 
+}
+
+.eventInfo h3 {
+
+    font-size: 1rem;
 }
 
 .eventInfo .flex {
