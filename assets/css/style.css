@@ -100,13 +100,21 @@ section {
     grid-column: 2/-2;
 }
 
-article {}
 
-a {}
+a {
+    color: var(--baseTextDarkColor);
+}
 
-i {
+a i {
+    color: inherit;
+    font-size: 1.3rem;
+    margin-right: 5px;
+}
+
+nav i {
     font-size: 30px;
     color: var(--interactableColor);
+
 }
 
 .active i {
@@ -152,8 +160,6 @@ h1 {
 
 h2 {
     font-size: 1.5rem;
-    color: var(--accentColor);
-    font-style: italic;
     margin-top: var(--mediumSpacing);
     margin-bottom: var(--smallSpacing);
     color: var(--primaryColor);
@@ -192,7 +198,8 @@ a.btn {
     font-weight: 600;
     grid-column: 2/-2;
     text-align: center;
-    margin-block: 20px;
+    margin: 20px 0;
+    display: block;
 }
 
 a.btn:hover {
@@ -207,18 +214,41 @@ a.btn:hover {
     text-align: center;
     color: var(--baseTextLightColor);
     border-radius: 5px;
-    
+    margin: var(--standardSpacing) 0;
 }
 
 .callout h3 {
     font-size: 1.3rem;
-    color: var(--baseTextLightColor);   
+    color: var(--baseTextLightColor);
 }
 
 .callout p {
     color: var(--baseTextLightColor);
     font-weight: 500;
     font-size: 1.1rem;
+}
+
+.eventInfo {
+    gap: var(--standardSpacing);
+
+}
+
+.eventInfo .flex {
+    gap: var(--smallSpacing)
+}
+
+.eventInfo i {
+    color: var(--baseTextLightColor);
+    font-size: 1.4rem;
+}
+
+.eventInfo .eventInfoContainer {
+    width: 50%;
+    text-align: left;
+}
+
+.eventInfo .eventInfoContainer div {
+    margin: var(--smallSpacing) 0;
 }
 
 /* --- FOCUS ENTRY POINTS --- */
@@ -253,12 +283,12 @@ a.btn:hover {
 
 /* ---IMAGES--- */
 
-.imgContainer{
+.imgContainer {
     grid-column: 1/-1;
     height: 250px;
 }
 
-.imgContainer img{
+.imgContainer img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -266,34 +296,59 @@ a.btn:hover {
 }
 
 /* ---SLIDESHOW--- */
-.slideshow{
+.slideshow {
     position: relative;
 }
 
-.slideshow .imgContainer{
+.slideshow .imgContainer {
     height: 350px;
 }
 
-.slideshow .informationCard{
+.slideshow .informationCard {
     background: var(--primaryColor);
     position: absolute;
     padding: var(--standardSpacing);
     width: 80%;
     bottom: 10px;
+    border-radius: 0 5px 5px 0;
 }
 
-.informationCard p, .informationCard h3, .informationCard i{
+.informationCard p,
+.informationCard h3,
+.informationCard i {
     color: var(--baseTextLightColor);
 }
 
-.informationCard .flex{
+.informationCard .flex {
     gap: var(--smallSpacing);
 }
 
-.informationCard i{
-    font-size: 20px;
+.informationCard i {
+    font-size: 1.4rem;
 }
 
-.informationCard h3{
+.informationCard h3 {
     margin-bottom: var(--smallSpacing);
+}
+
+/* --- SPILLESTED INFO--- */
+.locationInfo {
+    margin: var(--mediumSpacing) 0;
+    background: #ECF5FC;
+    padding: var(--mediumSpacing);
+    border-radius: 5px;
+    font-family: "Raleway", sans-serif;
+}
+
+.locationInfo i {
+    color: var(--baseTextDarkColor);
+    font-size: 1.5rem;
+}
+
+.locationInfo .flex {
+    gap: var(--smallSpacing);
+}
+
+.locationInfo div {
+    margin: var(--smallSpacing) 0;
 }
