@@ -22,10 +22,62 @@
     </header>
 
     <main>
-
+        <section>
+            <label class="toggle">
+                <input type="checkbox" onclick="toggleFilter()">
+                <span class="btn"><i class="fa-solid fa-filter"></i></span>
+            </label>
+            <div class="filterContainer" style="display: none;">
+                <h2>Filtrering</h2>
+                <h3>Dag</h3>
+                <div class="flex alignCenter">
+                    <label class="toggle">
+                        <input id="OnsdagFilter" type="checkbox" onclick="filterEvents()" value="Onsdag">
+                        <span class="tag">Onsdag</span>
+                    </label>
+                    <label class="toggle">
+                        <input id="TorsdagFilter" type="checkbox" onclick="filterEvents()" value="Torsdag">
+                        <span class="tag">Torsdag</span>
+                    </label>
+                    <label class="toggle">
+                        <input type="checkbox">
+                        <span class="tag">Fredag</span>
+                    </label>
+                    <label class="toggle">
+                        <input type="checkbox">
+                        <span class="tag">Lørdag</span>
+                    </label>
+                    <label class="toggle">
+                        <input type="checkbox">
+                        <span class="tag">Søndag</span>
+                    </label>
+                </div>
+                <h3>Spillested</h3>
+                <div class="flex alignCenter">
+                    <label class="toggle">
+                        <input id="DWineFilter" type="checkbox" onclick="filterEvents()" value="D`Wine Bar">
+                        <span class="tag">D`Wine Bar</span>
+                    </label>
+                    <label class="toggle">
+                        <input type="checkbox">
+                        <span class="tag">Jazzscenen</span>
+                    </label>
+                    <label class="toggle">
+                        <input type="checkbox">
+                        <span class="tag">KaffeFair</span>
+                    </label>
+                    <label class="toggle">
+                        <input type="checkbox">
+                        <span class="tag">Salling Rooftop</span>
+                    </label>
+                    <label class="toggle">
+                        <input type="checkbox">
+                        <span class="tag">Stargatescenen.</span>
+                    </label>
+                </div>
+            </div>
+        </section>
         <section class="eventContainer">
-
-
         </section>
 
 

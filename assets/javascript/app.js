@@ -274,15 +274,52 @@ const events = [
     },
 ]
 
-
 const eventContainerEl = document.querySelector(".eventContainer");
-// let surroundings;
-// let food;
-// let price;
+
+if (eventContainerEl) {
+    events.forEach(generateCard);
+}
+
+function toggleFilter() {
+    const container = document.querySelector(".filterContainer");
+
+    if (container.style.display === "none") {
+        container.style.display = "block";
+    } else {
+        container.style.display = "none";
+    }
+}
+
+function filterEvents() {
+    eventContainerEl.innerHTML = "";
+    let allowedDates = []
+    let allowedPlaces = []
+
+    const onsdagsFilter = document.querySelector("#OnsdagFilter");
+
+    if (onsdagsFilter.checked)
+        allowedDates.push(onsdagsFilter.value);
+    if (document.querySelector("#TorsdagFilter").checked)
+        allowedDates.push(document.querySelector("#TorsdagFilter").value);
 
 
 
-events.forEach(function (event) {
+    if (document.querySelector("#DWineFilter").checked) {
+        allowedPlaces.push(document.querySelector("#DWineFilter").value)
+    }
+
+
+    if (allowedDates.length === 0 && allowedPlaces.length === 0) {
+        events.forEach(generateCard);
+        return;
+    }
+
+
+    const filteredEvents = events.filter(ev => allowedDates.includes(ev.date) || allowedPlaces.includes(ev.location));
+    filteredEvents.forEach(generateCard);
+}
+
+function generateCard(event) {
     if (event.isOutdoor == true) {
         event.isOutdoor = `<i class="fa-solid fa-cloud-sun"></i>`;
 
@@ -307,22 +344,22 @@ events.forEach(function (event) {
     }
     eventContainerEl.innerHTML +=
         `<a href = "./arrangement-info/${event.infoFile}" class="cardTemplate" >
-            <h2>${event.artist}</h2>
-            <div class="basicInfo flex alignCenter">
-                <div class="imgContainer"><img src="./assets/img/${event.img}" alt="${event.altText}"></div>
-                <div class="cardtopicons">
-                    <p><i class="fa-solid fa-calendar-days"></i> ${event.date}</p>
-                    <p><i class="fa-solid fa-clock"></i> ${event.time}</p>
-                    <p><i class="fa-solid fa-location-dot"></i>${event.location}</p>
-                </div>
+        <h2>${event.artist}</h2>
+        <div class="basicInfo flex alignCenter">
+            <div class="imgContainer"><img src="./assets/img/${event.img}" alt="${event.altText}"></div>
+            <div class="cardtopicons">
+                <p><i class="fa-solid fa-calendar-days"></i> ${event.date}</p>
+                <p><i class="fa-solid fa-clock"></i> ${event.time}</p>
+                <p><i class="fa-solid fa-location-dot"></i>${event.location}</p>
             </div>
+        </div>
 
-            <p> ${event.description}</p>
+        <p> ${event.description}</p>
 
-            <div class="cardbottomicons flex">
-                ${event.isOutdoor}
-                ${event.hasFood}
-                ${event.isFree}
-            </div>
-        </a > `
-});
+        <div class="cardbottomicons flex">
+            ${event.isOutdoor}
+            ${event.hasFood}
+            ${event.isFree}
+        </div>
+    </a > `
+}

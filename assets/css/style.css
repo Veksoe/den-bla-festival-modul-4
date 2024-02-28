@@ -211,6 +211,29 @@ a.btn:hover {
     transition: 0.3s;
 }
 
+.toggle .btn {
+    background: var(--interactableColor);
+    border: none;
+    border-radius: 5px;
+    margin-top: var(--smallSpacing);
+    box-shadow: 5px 5px 5px rgba(128, 128, 128, 0.493);
+    float: right;
+    padding: var(--standardSpacing);
+}
+
+.toggle i {
+    font-size: 20px;
+}
+
+input:checked+.btn {
+    background-color: var(--hoverButtonColor);
+}
+
+input:checked+.filterContainer {
+    display: flex;
+}
+
+
 /* --- CALLOUT --- */
 .callout {
     background-color: var(--accentColor);
@@ -408,3 +431,49 @@ a.btn:hover {
 }
 
 /* Card end */
+
+
+/* --- FILTERING--- */
+.filterContainer {
+    background: var(--baseTextLightColor);
+    position: relative;
+    padding: var(--mediumSpacing);
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px rgba(128, 128, 128, 0.493);
+    top: 35px;
+    font-family: "Raleway", sans-serif;
+    display: none;
+}
+
+.filterContainer .flex {
+    flex-wrap: wrap;
+}
+
+.filterContainer div {
+    margin-bottom: var(--standardSpacing);
+}
+
+.toggle {
+    min-height: 50px;
+}
+
+.toggle input {
+    opacity: 0;
+    width: 0;
+    height: 30px;
+}
+
+.tag {
+    cursor: pointer;
+    padding: var(--smallSpacing);
+    background-color: var(--interactableColor);
+    transition: .4s;
+    border-radius: 30px;
+    box-shadow: 3px 3px 5px rgba(128, 128, 128, 0.493);
+
+}
+
+input:checked+.tag {
+    background-color: var(--hoverButtonColor);
+    color: var(--baseTextLightColor);
+}
