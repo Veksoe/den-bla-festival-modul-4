@@ -186,6 +186,10 @@ li {
     font-family: "Raleway", sans-serif;
 }
 
+p {
+    line-height: 1.5;
+}
+
 p.note {
     font-size: .9rem;
 }
@@ -443,6 +447,7 @@ input:checked+.filterContainer {
     top: 35px;
     font-family: "Raleway", sans-serif;
     display: none;
+    margin-bottom: var(--largeSpacing);
 }
 
 .filterContainer .flex {
