@@ -290,27 +290,63 @@ function toggleFilter() {
     }
 }
 
-function filterEvents() {
-    eventContainerEl.innerHTML = "";
-    let allowedDates = []
-    let allowedPlaces = []
-
-    const onsdagsFilter = document.querySelector("#OnsdagFilter");
-
-    if (onsdagsFilter.checked)
-        allowedDates.push(onsdagsFilter.value);
-    if (document.querySelector("#TorsdagFilter").checked)
-        allowedDates.push(document.querySelector("#TorsdagFilter").value);
+function filterEvents() { /* Funktion der skal bruges til at filterer vores events. */
+    eventContainerEl.innerHTML = ""; /* Fjern alt i "eventContainerEl" */
+    let allowedDates = [] /* Variablen med tomt array */
+    let allowedPlaces = [] /* Variablen med tomt array */
 
 
-
-    if (document.querySelector("#DWineFilter").checked) {
-        allowedPlaces.push(document.querySelector("#DWineFilter").value)
+    /* Hvis elementet i HTML med id'et "OnsdagFilter" er checked */
+    if (document.querySelector("#OnsdagFilter").checked) {
+        allowedDates.push(document.querySelector("#OnsdagFilter").value);/*indsæt/push toggle-værdien til arrayet "allowedDates" */
     }
 
+    /* Hvis elementet i HTML med id'et "TorsdagFilter" er checked*/
+    if (document.querySelector("#TorsdagFilter").checked) {
+        allowedDates.push(document.querySelector("#TorsdagFilter").value);/* indsæt/push toggle-værdien til arrayet "allowedDates" */
+    }
 
-    if (allowedDates.length === 0 && allowedPlaces.length === 0) {
-        events.forEach(generateCard);
+    /* Hvis elementet i HTML med id'et "FredagFilter" er checked*/
+    if (document.querySelector("#FredagFilter").checked) {
+        allowedDates.push(document.querySelector("#FredagFilter").value);/* indsæt/push toggle-værdien til arrayet "allowedDates" */
+    }
+
+    /* Hvis elementet i HTML med id'et "LørdagFilter" er checked*/
+    if (document.querySelector("#LørdagFilter").checked) {
+        allowedDates.push(document.querySelector("#LørdagFilter").value);/* indsæt/push toggle-værdien til arrayet "allowedDates" */
+    }
+    /* Hvis elementet i HTML med id'et "SøndagFilter" er checked*/
+    if (document.querySelector("#SøndagFilter").checked) {
+        allowedDates.push(document.querySelector("#LørdagFilter").value);/* indsæt/push toggle-værdien til arrayet "allowedDates" */
+    }
+
+    /* Hvis elementet i HTML med id'et "DWineFilter" er checked*/
+    if (document.querySelector("#DWineFilter").checked) {
+        allowedPlaces.push(document.querySelector("#DWineFilter").value)/* indsæt/push toggle-værdien til arrayet "allowedPleaces" */
+    }
+
+    /* Hvis elementet i HTML med id'et "SallingFilter" er checked*/
+    if (document.querySelector("#SallingFilter").checked) {
+        allowedPlaces.push(document.querySelector("#SallingFilter").value)/* indsæt/push toggle-værdien til arrayet "allowedPleaces" */
+    }
+
+    /* Hvis elementet i HTML med id'et "JazzscenenFilter" er checked*/
+    if (document.querySelector("#JazzscenenFilter").checked) {
+        allowedPlaces.push(document.querySelector("#JazzscenenFilter").value)/* indsæt/push toggle-værdien til arrayet "allowedPleaces" */
+    }
+
+    /* Hvis elementet i HTML med id'et "KaffeFairFilter" er checked*/
+    if (document.querySelector("KaffeFairFilter").checked) {
+        allowedPlaces.push(document.querySelector("#KaffefairFilter").value)/* indsæt/push toggle-værdien til arrayet "allowedPleaces" */
+    }
+
+    /* Hvis elementet i HTML med id'et "StargateFilter" er checked*/
+    if (document.querySelector("StargateFilter").checked) {
+        allowedPlaces.push(document.querySelector("#StargateFilter").value)/* indsæt/push toggle-værdien til arrayet "allowedPleaces" */
+    }
+
+    if (allowedDates.length === 0 && allowedPlaces.length === 0) {/* Hvis længden allowedDates og allowedDates arraysene er lige med 0 */
+        events.forEach(generateCard);/* Kør "generateCard" funktionen for hvert element i events-arrayet (lav alle cards igen) */
         return;
     }
 
