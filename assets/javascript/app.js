@@ -274,62 +274,136 @@ const events = [
     },
 ]
 
+const eventContainerEl = document.querySelector(".eventContainer"); /* Fang elementet i HTMLen med classen "eventContainer" og declare den som eventContainerEl */
 
-const eventContainerEl = document.querySelector(".eventContainer");
-// let surroundings;
-// let food;
-// let price;
+if (eventContainerEl) { /* hvis der er en evenContainerEl på siden */
+    events.forEach(generateCard);  /* loop igennem hvert element i events og kør "generateCard" funktionen for hvert element */
+}
+
+function toggleFilter() { /* Funktion der skal bruges til at åbne og lukke vores filtrering boks. */
+    const filterContainerEl = document.querySelector(".filterContainer");  /* Fang elementet i HTMLen med classen "eventContainer" og declare den som filterContainerEl */
+
+    if (filterContainerEl.style.display === "none") { /* hvis display på inline-css style er lige med none. */
+        filterContainerEl.style.display = "block"; /* sæt display på inline-css style lige med block */
+    } else {
+        filterContainerEl.style.display = "none"; /* Ellers sæt display på inline-css style lige med none. */
+    }
+}
+
+function filterEvents() { /* Funktion der skal bruges til at filterer vores events. */
+    eventContainerEl.innerHTML = ""; /* Fjern alt i "eventContainerEl" */
+    let allowedDates = [] /* Variablen med tomt array */
+    let allowedPlaces = [] /* Variablen med tomt array */
 
 
+    /* Hvis elementet i HTML med id'et "OnsdagFilter" er checked */
+    if (document.querySelector("#OnsdagFilter").checked) {
+        allowedDates.push(document.querySelector("#OnsdagFilter").value);/*indsæt/push value (onsdag) til arrayet "allowedDates" */
+    }
 
-events.forEach(function (event) {
-    if (event.isOutdoor == true) {
-        event.isOutdoor = `<i class="fa-solid fa-cloud-sun"></i>`;
+    /* Hvis elementet i HTML med id'et "TorsdagFilter" er checked*/
+    if (document.querySelector("#TorsdagFilter").checked) {
+        allowedDates.push(document.querySelector("#TorsdagFilter").value);/* indsæt/push value (torsdag) til arrayet "allowedDates" */
+    }
 
+    /* Hvis elementet i HTML med id'et "FredagFilter" er checked*/
+    if (document.querySelector("#FredagFilter").checked) {
+        allowedDates.push(document.querySelector("#FredagFilter").value);/* indsæt/push value (fredag) til arrayet "allowedDates" */
+    }
+
+    /* Hvis elementet i HTML med id'et "LørdagFilter" er checked*/
+    if (document.querySelector("#LørdagFilter").checked) {
+        allowedDates.push(document.querySelector("#LørdagFilter").value);/* indsæt/push value (lørdag) til arrayet "allowedDates" */
+    }
+    /* Hvis elementet i HTML med id'et "SøndagFilter" er checked*/
+    if (document.querySelector("#SøndagFilter").checked) {
+        allowedDates.push(document.querySelector("#SøndagFilter").value);/* indsæt/push value (søndag) til arrayet "allowedDates" */
+    }
+
+    /* Hvis elementet i HTML med id'et "DWineFilter" er checked*/
+    if (document.querySelector("#DWineFilter").checked) {
+        allowedPlaces.push(document.querySelector("#DWineFilter").value)/* indsæt/push value (D`Wine Bar) til arrayet "allowedPlaces" */
+    }
+
+    /* Hvis elementet i HTML med id'et "SallingFilter" er checked*/
+    if (document.querySelector("#SallingFilter").checked) {
+        allowedPlaces.push(document.querySelector("#SallingFilter").value)/* indsæt/push value (Salling Rooftop) til arrayet "allowedPlaces" */
+    }
+
+    /* Hvis elementet i HTML med id'et "JazzscenenFilter" er checked*/
+    if (document.querySelector("#JazzscenenFilter").checked) {
+        allowedPlaces.push(document.querySelector("#JazzscenenFilter").value)/* indsæt/push value (Jazzscenen) til arrayet "allowedPlaces" */
+    }
+
+    /* Hvis elementet i HTML med id'et "KaffeFairFilter" er checked*/
+    if (document.querySelector("#KaffeFairFilter").checked) {
+        allowedPlaces.push(document.querySelector("#KaffeFairFilter").value)/* indsæt/push value (KaffeFair) til arrayet "allowedPlaces" */
+    }
+
+    /* Hvis elementet i HTML med id'et "StargateFilter" er checked*/
+    if (document.querySelector("#StargateFilter").checked) {
+        allowedPlaces.push(document.querySelector("#StargateFilter").value)/* indsæt/push value (Stargate scenen) til arrayet "allowedPlaces" */
+    }
+
+    events.forEach(event => filterEventsByDaysAndPlace(event, allowedDates, allowedPlaces));
+    /* ^ For hvert element i events kør funktionen "filterEventsByDaysAndPlace" med brug af det event den er nået til i listen og elementerne sat i "allowedDates" og "allowedPlaces" arraysene*/
+}
+
+function filterEventsByDaysAndPlace(event, allowedDates, allowedPlaces) {
+    /* ^Funktion der filtrere events ud fra dag og lokation, med brug af det aktukelle event og elementerne sat i "allowedDates" og "allowedPlaces" arraysene*/
+
+    if ((allowedDates.length === 0 || allowedDates.includes(event.date))
+        /* ^ Hvis længden på "allowedDates" arrayet er lige med nul eller "allowedDates" indeholder dagen der matcher det aktuelle events dag  */
+        && (allowedPlaces.length === 0 || allowedPlaces.includes(event.location)))
+        /* ^ og hvis længden på "allowedPlaces" arrayet er lige med nul eller "allowedPlaces" indeholder stedet der matcher det aktuelle events sted  */
+        generateCard(event) /* kør "generateCard funktionen for det aktuelle event*/
+}
+
+function generateCard(event) {/* funktion der generere et card til det aktuelle event */
+    let outdoorIcon; /* declare variable til outdoor ikonet */
+    if (event.isOutdoor === true) { /* hvis isOutdoor i det akutelle event er true */
+        outdoorIcon = `<i class="fa-solid fa-cloud-sun"></i>`; /* sæt outdoorIcon lige med icon-teksten  */
     }
     else {
-        event.isOutdoor = `<i class="fa-solid fa-person-shelter"></i>`;
+        outdoorIcon = `<i class="fa-solid fa-person-shelter"></i>`;/* ellers sæt outdoorIcon lige med denne icon-tekst */
     }
 
-    if (event.hasFood == true) {
-        event.hasFood = `<i class="fa-solid fa-utensils"></i>`;
-
+    let hasFoodIcon; /* declare variable til hasFood ikonet */
+    if (event.hasFood === true) { /* hvis hasFood i det aktuelle event er true */
+        hasFoodIcon = `<i class="fa-solid fa-utensils"></i>`;  /* sæt hasFoodIcon lige med icon-teksten */
     }
     else {
-        event.hasFood = `<i class="fa-solid fa-coins"></i>`;
+        hasFoodIcon = `<i class="fa-solid fa-coins"></i>`; /* ellers sæt hasFoodIcon lige med denne icon-tekst */
     }
-    if (event.isFree == true) {
-        event.isFree = "free";
 
+    let isFreeIcon; /* declare variable til isFree ikonet */
+    if (event.isFree === true) { /* hvis isFree i det aktuelle event er true */
+        isFreeIcon = "free";/* sæt isFreeIcon lige med "free" */
     }
     else {
-        event.isFree = `<i class="fa-solid fa-coins"></i>`;
+        isFreeIcon = `<i class="fa-solid fa-coins"></i>`; /* ellers sæt hasFoodIcon lige med icon-teksten */
     }
-    eventContainerEl.innerHTML +=
+
+    eventContainerEl.innerHTML += /* Tilføj følgende i elementet i HTMLen der er knyttet til eventContainerEl */
         `<a href = "./arrangement-info/${event.infoFile}" class="cardTemplate" >
-            <h2>${event.artist}</h2>
-            <div class="basicInfo flex alignCenter">
-                <div class="imgContainer"><img src="./assets/img/${event.img}" alt="${event.altText}"></div>
-                <div class="cardtopicons">
-                    <p><i class="fa-solid fa-calendar-days"></i> ${event.date}</p>
-                    <p><i class="fa-solid fa-clock"></i> ${event.time}</p>
-                    <p><i class="fa-solid fa-location-dot"></i>${event.location}</p>
-                </div>
+        <h2>${event.artist}</h2>
+        <div class="basicInfo flex alignCenter">
+            <div class="imgContainer"><img src="./assets/img/${event.img}" alt="${event.altText}"></div>
+            <div class="cardtopicons">
+                <p><i class="fa-solid fa-calendar-days"></i> ${event.date}</p>
+                <p><i class="fa-solid fa-clock"></i> ${event.time}</p>
+                <p><i class="fa-solid fa-location-dot"></i>${event.location}</p>
             </div>
-
-            <p> ${event.description}</p>
-
-            <div class="cardbottomicons flex">
-                ${event.isOutdoor}
-                ${event.hasFood}
-                ${event.isFree}
-            </div>
-        </a > `
-});
-
-
-//Google maps
-
-
-
-
+        </div>
+ 
+        <p> ${event.description}</p>
+ 
+        <div class="cardbottomicons flex">
+            ${outdoorIcon}
+            ${hasFoodIcon}
+            ${isFreeIcon}
+        </div>
+    </a > `
+    /* ^ Indsæt de forskellige elementer fra det aktuelle event de forskellige steder de bliver refereret
+        undtagen ved outdoorIcon, hasFoodIcon og isFreeIcon; brug indholdet sat i de respektive variabler. */
+}
