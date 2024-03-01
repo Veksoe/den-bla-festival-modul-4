@@ -326,3 +326,18 @@ events.forEach(function (event) {
             </div>
         </a > `
 });
+
+
+//Google maps
+let map;
+
+async function initmap(){
+let location = {lat: 57.048820, lng: 9.921747};
+let map = new google.maps.Map(querySelector("kort"), {
+zoom: 4, 
+center: location
+});
+
+}
+
+async defer src="https://maps.googleapis.com/maps/api/js?AIzaSyDKOhACqbR7bVHHAnBLEREOrG9Q0bkXjX4callback=initMap"
