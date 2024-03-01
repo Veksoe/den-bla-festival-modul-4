@@ -127,6 +127,11 @@ nav .active {
     border-radius: 100%;
 }
 
+nav a {
+    text-align: center;
+    min-width: 60px;
+}
+
 
 /* --- TEXT --- */
 h1,
@@ -345,7 +350,7 @@ input:checked+.filterContainer {
     position: absolute;
     padding: var(--standardSpacing);
     width: 80%;
-    bottom: 10px;
+    bottom: 15px;
     border-radius: 0 5px 5px 0;
 }
 
