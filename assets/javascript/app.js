@@ -67,7 +67,7 @@ const events = [
     {
         infoFile: "heroeya_Musikkorps_parade.html",
         artist: "Herøya Musikkorps - Streetparade",
-        img: "HeroeyaMusikkorps-small.png",
+        img: "HeroeyaMusikkorps-small.jpg",
         altText: "Herøya Musikkorps det sidder og spiller",
         date: "Lørdag",
         time: "12:00",
@@ -80,7 +80,7 @@ const events = [
     {
         infoFile: "heroeya_Musikkorps-small.html",
         artist: "Herøya Musikkorps",
-        img: "HeroeyaMusikkorps.png",
+        img: "HeroeyaMusikkorps-small.jpg",
         altText: "Herøya Musikkorps det sidder og spiller",
         date: "Fredag",
         time: "13:30",
@@ -158,7 +158,7 @@ const events = [
     {
         infoFile: "Limeriver_Jazz_&_Jam_session.html",
         artist: "Limeriver Jazz Og Jazz Session",
-        img: "LimeriverJazzBand-small.png",
+        img: "LimeriverJazzBand-small.jpg",
         altText: "Billede af bandet der er samlet",
         date: "Søndag",
         time: "10:00-14:00",
@@ -210,7 +210,7 @@ const events = [
     {
         infoFile: "st_Marie_Skoles_Bigband.html",
         artist: "St. Mariæ Skoles Bigband",
-        img: "StMariæSkolesBigBand-small.png",
+        img: "StMariæSkolesBigBand-small.jpg",
         altText: "St. Mariæ Skoles Bigband der står med deres instrumenter på en trappe.",
         date: "Torsdag",
         time: "14:00",
@@ -249,7 +249,7 @@ const events = [
     {
         infoFile: "Vulkan _Duo-koncert.html",
         artist: "Vulkan duo-koncert",
-        img: "Vulkan Duo-small.png",
+        img: "Vulkan Duo-small.jpg",
         altText: "billede af Jens på guitaren",
         date: "Fredag",
         time: "18:30",
